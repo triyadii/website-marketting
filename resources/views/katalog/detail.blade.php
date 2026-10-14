@@ -110,7 +110,7 @@
       
       <!-- Logo -->
       <a href="{{ route('home') }}" class="flex items-center gap-4 shrink-0 group">
-        <img alt="BYD Medan Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U"/>
+        <img alt="BYD Medan Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="{{ asset('images/byd_auto_logo.png') }}"/>
         <div class="flex flex-col">
           <span class="font-heading text-sm font-bold text-white tracking-wider uppercase leading-tight group-hover:text-ev-cyan transition-colors">BYD Arista</span>
           <span class="text-[10px] text-ev-cyan uppercase tracking-widest leading-none">Cemara Medan</span>
@@ -350,7 +350,7 @@
   <footer class="w-full bg-surface-dark text-white border-t border-white/10 mt-16">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
       <div class="flex items-center gap-3">
-        <img alt="BYD Logo" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U"/>
+        <img alt="BYD Logo" class="h-6 w-auto" src="{{ asset('images/byd_auto_logo.png') }}"/>
         <span>&copy; 2025 {{ $profile->nama_produk ?? 'BYD Arista Cemara Medan' }}. Hak Cipta Dilindungi.</span>
       </div>
       <div class="flex items-center gap-4">

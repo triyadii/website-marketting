@@ -114,11 +114,16 @@
       animation: cardFocusPulse 1.4s ease-in-out;
       border-color: #00E5FF !important;
     }
+    .text-gradient-ev {
+      background: linear-gradient(90deg, #00E5FF 0%, #50d9fe 50%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 
-  <!-- Tailwind config HARUS sebelum CDN script agar dibaca saat inisialisasi -->
+  <!-- Tailwind CSS CDN Engine MUST load before tailwind.config assignment -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
-    tailwind = window.tailwind || {};
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -230,7 +235,6 @@
       }
     };
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
 
@@ -239,7 +243,7 @@
     <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
       <!-- Dealer Brand Logo -->
       <a href="#beranda" class="flex items-center gap-4 shrink-0 group focus:outline-none">
-        <img alt="BYD Medan Logo" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U"/>
+        <img alt="BYD Medan Logo" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="{{ asset('images/byd_auto_logo.png') }}"/>
         <div class="flex flex-col">
           <span class="font-label-lg text-label-lg text-surface tracking-wider uppercase leading-tight group-hover:text-ev-cyan transition-colors">BYD Arista</span>
           <span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-widest leading-none">Cemara Medan</span>
@@ -425,7 +429,7 @@
               </div>
               <div class="flex flex-col gap-2">
                 <h1 class="font-display-hero text-display-hero text-surface tracking-tight leading-[1.08]">
-                  Masa Depan <span class="text-transparent bg-clip-text bg-gradient-to-r from-ev-cyan via-secondary-fixed-dim to-surface">Mobilitas Listrik</span> di Kota Medan.
+                  Masa Depan <span class="text-gradient-ev text-transparent bg-clip-text bg-gradient-to-r from-ev-cyan via-secondary-fixed-dim to-surface">Mobilitas Listrik</span> di Kota Medan.
                 </h1>
                 <p class="font-body-lg text-body-lg text-surface/75 leading-relaxed pt-2">
                   Jelajahi teknologi revolusioner Blade Battery bersama <strong>{{ $profile->nama_produk ?? 'BYD Arista Cemara Medan' }}</strong>. Dapatkan promo OTR Medan, bunga subsidi 0%, dan unit siap test drive.
@@ -1134,7 +1138,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-space-2xl">
         <div class="flex flex-col gap-4">
           <div class="flex items-center gap-3">
-            <img alt="{{ $profile->nama_produk ?? 'BYD Medan' }} Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U"/>
+            <img alt="{{ $profile->nama_produk ?? 'BYD Medan' }} Logo" class="h-7 w-auto object-contain" src="{{ asset('images/byd_auto_logo.png') }}"/>
             <span class="font-headline-sm text-headline-sm text-surface">{{ $profile->nama_produk ?? 'BYD Medan' }}</span>
           </div>
           <p class="font-body-sm text-body-sm text-surface/70 leading-relaxed">

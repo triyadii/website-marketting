@@ -49,7 +49,7 @@
     <!-- Logo & Header -->
     <div class="flex flex-col items-center text-center mb-8">
       <div class="w-16 h-16 rounded-2xl bg-[#0B131F] flex items-center justify-center shadow-lg mb-4 p-2.5">
-        <img class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U" alt="BYD Logo"/>
+        <img class="w-full h-auto object-contain" src="{{ asset('images/byd_auto_logo.png') }}" alt="BYD Logo"/>
       </div>
       <h1 class="text-2xl font-bold font-heading text-kt-dark tracking-tight">Portal Manajemen</h1>
       <p class="text-xs text-kt-muted mt-1">BYD Arista Cemara Medan &bull; Official Dealer</p>

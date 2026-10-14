@@ -69,7 +69,7 @@
       <!-- Brand Logo -->
       <div class="h-16 px-6 flex items-center justify-between border-b border-white/5 bg-kt-aside-hover/50">
         <a href="{{ route('admin.dashboard') }}" class="flex items-center group">
-          <img class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WXG4FMNpx7c_WZbrcRjgigiGAwN-CygLz3yAsg2ExO5kejaUGYZk1q46duib3-ttjdbcK-xmjeO14Ur40V03GdWdkn-3bjiqbP9dEvdq7sDOHlpGlfDxyuDKevlVikd04v0cdbu5lCuQM1fCTkDIUW9WPg7mId0yjsGsWavy8MbfAUnOGPxdpDpym-EyyXpIE8NIguJvl9-THXgwcotHGOxfufm96D5F0XhIengJsFtAQ88BXqqVxDAk3U" alt="BYD"/>
+          <img class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="{{ asset('images/byd_auto_logo.png') }}" alt="BYD"/>
         </a>
         <button id="closeSidebarMobile" class="lg:hidden text-white/70 hover:text-white">
           <span class="material-symbols-outlined text-[20px]">close</span>
