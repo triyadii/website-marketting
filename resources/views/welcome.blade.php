@@ -26,26 +26,29 @@
   <meta name="twitter:image" content="{{ $profile->hero_photo_url ?? asset('images/customer_handover_seal.png') }}"/>
 
   <!-- Schema.org AutoDealer & WebSite JSON-LD -->
+  @php
+    $schemaJson = [
+      '@context' => 'https://schema.org',
+      '@type' => 'AutoDealer',
+      'name' => $profile->nama_produk ?? 'BYD Arista Cemara Medan',
+      'description' => $profile->keterangan_profil ?? 'Dealer Resmi Mobil Listrik BYD Medan',
+      'image' => $profile->hero_photo_url,
+      'url' => url('/'),
+      'telephone' => $profile->nomor_telepon ?? '082368827959',
+      'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => $profile->alamat ?? 'Jl. Cemara No. 198',
+        'addressLocality' => 'Medan',
+        'addressRegion' => 'Sumatera Utara',
+        'postalCode' => '20239',
+        'addressCountry' => 'ID',
+      ],
+      'openingHours' => $profile->jam_operasional ?? 'Mo-Su 08:30-18:00',
+      'priceRange' => 'Rp 225.000.000 - Rp 750.000.000',
+    ];
+  @endphp
   <script type="application/ld+json">
-  {!! json_encode([
-    '@context' => 'https://schema.org',
-    '@type' => 'AutoDealer',
-    'name' => $profile->nama_produk ?? 'BYD Arista Cemara Medan',
-    'description' => $profile->keterangan_profil ?? 'Dealer Resmi Mobil Listrik BYD Medan',
-    'image' => $profile->hero_photo_url,
-    'url' => url('/'),
-    'telephone' => $profile->nomor_telepon ?? '082368827959',
-    'address' => [
-      '@type' => 'PostalAddress',
-      'streetAddress' => $profile->alamat ?? 'Jl. Cemara No. 198',
-      'addressLocality' => 'Medan',
-      'addressRegion' => 'Sumatera Utara',
-      'postalCode' => '20239',
-      'addressCountry' => 'ID',
-    ],
-    'openingHours' => $profile->jam_operasional ?? 'Mo-Su 08:30-18:00',
-    'priceRange' => 'Rp 225.000.000 - Rp 750.000.000',
-  ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+  {!! json_encode($schemaJson, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
   </script>
 
   <!-- Google Fonts -->
@@ -87,6 +90,11 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #00E5FF;
     }
+    /* Fallback background agar page tidak blank jika Tailwind CDN lambat/gagal */
+    body {
+      background-color: #f8f9ff;
+      color: #0b1c30;
+    }
     /* Highlight pulse for focused car cards */
     @keyframes cardFocusPulse {
       0% {
@@ -108,8 +116,9 @@
     }
   </style>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind config HARUS sebelum CDN script agar dibaca saat inisialisasi -->
   <script id="tailwind-config">
+    tailwind = window.tailwind || {};
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -221,6 +230,7 @@
       }
     };
   </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
 
@@ -1497,5 +1507,6 @@
       hitungSimulasi();
     });
   </script>
+
 </body>
 </html>

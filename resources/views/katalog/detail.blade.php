@@ -27,33 +27,36 @@
   <meta name="twitter:image" content="{{ $catalog->first_photo_url }}"/>
 
   <!-- Schema.org JSON-LD Structured Data for Product & Dealer -->
-  <script type="application/ld+json">
-  {!! json_encode([
-    '@context' => 'https://schema.org/',
-    '@type' => 'Product',
-    'name' => $catalog->nama_produk,
-    'image' => $catalog->photo_urls,
-    'description' => \Illuminate\Support\Str::limit(strip_tags($catalog->keterangan), 250),
-    'brand' => [
-      '@type' => 'Brand',
-      'name' => 'BYD',
-    ],
-    'offers' => [
-      '@type' => 'Offer',
-      'url' => route('katalog.detail', $catalog->slug),
-      'priceCurrency' => 'IDR',
-      'price' => (string) $catalog->harga,
-      'priceValidUntil' => '2026-12-31',
-      'itemCondition' => 'https://schema.org/NewCondition',
-      'availability' => 'https://schema.org/InStock',
-      'seller' => [
-        '@type' => 'AutoDealer',
-        'name' => $profile->nama_produk ?? 'BYD Arista Cemara Medan',
-        'telephone' => $profile->nomor_telepon ?? '082368827959',
-        'address' => $profile->alamat ?? 'Jl. Cemara No. 198, Medan',
+  @php
+    $catalogSchema = [
+      '@context' => 'https://schema.org/',
+      '@type' => 'Product',
+      'name' => $catalog->nama_produk,
+      'image' => $catalog->photo_urls,
+      'description' => \Illuminate\Support\Str::limit(strip_tags($catalog->keterangan), 250),
+      'brand' => [
+        '@type' => 'Brand',
+        'name' => 'BYD',
       ],
-    ],
-  ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+      'offers' => [
+        '@type' => 'Offer',
+        'url' => route('katalog.detail', $catalog->slug),
+        'priceCurrency' => 'IDR',
+        'price' => (string) $catalog->harga,
+        'priceValidUntil' => '2026-12-31',
+        'itemCondition' => 'https://schema.org/NewCondition',
+        'availability' => 'https://schema.org/InStock',
+        'seller' => [
+          '@type' => 'AutoDealer',
+          'name' => $profile->nama_produk ?? 'BYD Arista Cemara Medan',
+          'telephone' => $profile->nomor_telepon ?? '082368827959',
+          'address' => $profile->alamat ?? 'Jl. Cemara No. 198, Medan',
+        ],
+      ],
+    ];
+  @endphp
+  <script type="application/ld+json">
+  {!! json_encode($catalogSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
   </script>
 
   <!-- Google Fonts -->
